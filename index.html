@@ -108,9 +108,9 @@
 
         .buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
-            flex-wrap: wrap;
             margin-top: 30px;
         }
 
@@ -135,13 +135,23 @@
             position: relative;
             overflow: hidden;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            width: 220px;
+            text-align: center;
         }
 
-        .xra-btn {
+        .txt-btn {
             background: rgba(140, 43, 231, 0.7);
             box-shadow: 
                 0 8px 32px rgba(0, 0, 0, 0.3),
                 0 2px 8px rgba(140, 43, 231, 0.6),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .watermelon-btn {
+            background: rgba(0, 180, 80, 0.7);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 180, 80, 0.6),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.3);
         }
 
@@ -171,12 +181,20 @@
             background: rgba(255, 120, 0, 0.8);
         }
 
-        .xra-btn:hover {
+        .txt-btn:hover {
             box-shadow: 
                 0 12px 40px rgba(0, 0, 0, 0.4),
                 0 4px 15px rgba(140, 43, 231, 0.8),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.4);
             background: rgba(140, 43, 231, 0.8);
+        }
+
+        .watermelon-btn:hover {
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                0 4px 15px rgba(0, 200, 80, 0.8),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            background: rgba(0, 200, 80, 0.8);
         }
 
         .glass-btn:hover::before {
@@ -254,11 +272,19 @@
                 inset 0 0 0 1px rgba(255, 255, 255, 0.3);
         }
 
-        .light-mode .xra-btn {
+        .light-mode .txt-btn {
             background: rgba(140, 43, 231, 0.7);
             box-shadow: 
                 0 8px 32px rgba(0, 0, 0, 0.25),
                 0 2px 8px rgba(140, 43, 231, 0.6),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
+        .light-mode .watermelon-btn {
+            background: rgba(0, 180, 80, 0.7);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.25),
+                0 2px 8px rgba(0, 180, 80, 0.6),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.3);
         }
 
@@ -270,12 +296,20 @@
             background: rgba(255, 90, 0, 0.8);
         }
 
-        .light-mode .xra-btn:hover {
+        .light-mode .txt-btn:hover {
             box-shadow: 
                 0 12px 40px rgba(0, 0, 0, 0.35),
                 0 4px 15px rgba(140, 43, 231, 0.8),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.4);
             background: rgba(140, 43, 231, 0.8);
+        }
+
+        .light-mode .watermelon-btn:hover {
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.35),
+                0 4px 15px rgba(0, 200, 80, 0.8),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            background: rgba(0, 200, 80, 0.8);
         }
 
         .pixel-art {
@@ -356,7 +390,7 @@
             color: #fff;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            text-shadow: 0 0 10px rgba(140, 43, 231, 0.7);
+            text-shadow: 0 0 10px rgba(0, 180, 80, 0.7);
         }
 
         .modal p {
@@ -366,7 +400,7 @@
         }
 
         .modal-close {
-            background: rgba(140, 43, 231, 0.7);
+            background: rgba(0, 180, 80, 0.7);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -374,13 +408,13 @@
             cursor: pointer;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(140, 43, 231, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 180, 80, 0.4);
         }
 
         .modal-close:hover {
-            background: rgba(160, 63, 251, 0.8);
+            background: rgba(0, 200, 100, 0.8);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(140, 43, 231, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 180, 80, 0.6);
         }
 
         .light-mode .modal-content {
@@ -389,7 +423,7 @@
 
         .light-mode .modal h2 {
             color: #333;
-            text-shadow: 0 0 10px rgba(140, 43, 231, 0.4);
+            text-shadow: 0 0 10px rgba(0, 180, 80, 0.4);
         }
 
         .light-mode .modal p {
@@ -404,11 +438,6 @@
             .glass-btn {
                 padding: 15px 30px;
                 font-size: 1.2rem;
-            }
-            
-            .buttons {
-                flex-direction: column;
-                align-items: center;
             }
         }
     </style>
@@ -427,7 +456,8 @@
             
             <div class="buttons">
                 <a href="https://seedtut.github.io" class="glass-btn">seedtut</a>
-                <button class="glass-btn xra-btn" id="xraBtn">xra</button>
+                <a href="https://txtgw.netlify.app/" class="glass-btn txt-btn">txt</a>
+                <button class="glass-btn watermelon-btn" id="watermelonBtn">西瓜🍉</button>
             </div>
             
             <div class="pixel-art">
@@ -442,9 +472,9 @@
     </div>
 
     <!-- 弹窗 -->
-    <div class="modal" id="xraModal">
+    <div class="modal" id="watermelonModal">
         <div class="modal-content">
-            <h2>XRA</h2>
+            <h2>西瓜🍉</h2>
             <p>暂无官网</p>
             <button class="modal-close" id="modalClose">确定</button>
         </div>
@@ -452,8 +482,8 @@
 
     <script>
         const themeToggle = document.getElementById('themeToggle');
-        const xraBtn = document.getElementById('xraBtn');
-        const xraModal = document.getElementById('xraModal');
+        const watermelonBtn = document.getElementById('watermelonBtn');
+        const watermelonModal = document.getElementById('watermelonModal');
         const modalClose = document.getElementById('modalClose');
         
         themeToggle.addEventListener('click', () => {
@@ -465,19 +495,19 @@
         });
         
         // 显示弹窗
-        xraBtn.addEventListener('click', () => {
-            xraModal.classList.add('active');
+        watermelonBtn.addEventListener('click', () => {
+            watermelonModal.classList.add('active');
         });
         
         // 关闭弹窗
         modalClose.addEventListener('click', () => {
-            xraModal.classList.remove('active');
+            watermelonModal.classList.remove('active');
         });
         
         // 点击弹窗外部关闭
-        xraModal.addEventListener('click', (e) => {
-            if (e.target === xraModal) {
-                xraModal.classList.remove('active');
+        watermelonModal.addEventListener('click', (e) => {
+            if (e.target === watermelonModal) {
+                watermelonModal.classList.remove('active');
             }
         });
         
