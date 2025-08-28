@@ -139,6 +139,14 @@
             text-align: center;
         }
 
+        .seed-btn {
+            background: rgba(0, 150, 255, 0.7);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 8px rgba(0, 150, 255, 0.6),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
         .txt-btn {
             background: rgba(140, 43, 231, 0.7);
             box-shadow: 
@@ -179,6 +187,14 @@
                 0 4px 15px rgba(255, 80, 0, 0.8),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.4);
             background: rgba(255, 120, 0, 0.8);
+        }
+
+        .seed-btn:hover {
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                0 4px 15px rgba(0, 150, 255, 0.8),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            background: rgba(0, 150, 255, 0.8);
         }
 
         .txt-btn:hover {
@@ -272,6 +288,14 @@
                 inset 0 0 0 1px rgba(255, 255, 255, 0.3);
         }
 
+        .light-mode .seed-btn {
+            background: rgba(0, 150, 255, 0.7);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.25),
+                0 2px 8px rgba(0, 150, 255, 0.6),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+
         .light-mode .txt-btn {
             background: rgba(140, 43, 231, 0.7);
             box-shadow: 
@@ -294,6 +318,14 @@
                 0 4px 15px rgba(255, 80, 0, 0.8),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.4);
             background: rgba(255, 90, 0, 0.8);
+        }
+
+        .light-mode .seed-btn:hover {
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.35),
+                0 4px 15px rgba(0, 150, 255, 0.8),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+            background: rgba(0, 150, 255, 0.8);
         }
 
         .light-mode .txt-btn:hover {
@@ -390,7 +422,6 @@
             color: #fff;
             margin-bottom: 20px;
             font-size: 1.8rem;
-            text-shadow: 0 0 10px rgba(0, 180, 80, 0.7);
         }
 
         .modal p {
@@ -399,8 +430,48 @@
             font-size: 1.2rem;
         }
 
-        .modal-close {
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 150, 255, 0.7);
+            color: white;
+        }
+
+        .modal-btn.pro {
+            background: rgba(220, 100, 0, 0.7);
+        }
+
+        .modal-btn.foundation {
             background: rgba(0, 180, 80, 0.7);
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-btn.pro:hover {
+            background: rgba(240, 120, 0, 0.8);
+        }
+
+        .modal-btn.foundation:hover {
+            background: rgba(0, 200, 100, 0.8);
+        }
+
+        .modal-close {
+            background: rgba(140, 43, 231, 0.7);
             color: white;
             border: none;
             padding: 12px 30px;
@@ -408,13 +479,14 @@
             cursor: pointer;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 180, 80, 0.4);
+            box-shadow: 0 4px 15px rgba(140, 43, 231, 0.4);
+            margin-top: 20px;
         }
 
         .modal-close:hover {
-            background: rgba(0, 200, 100, 0.8);
+            background: rgba(160, 63, 251, 0.8);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 180, 80, 0.6);
+            box-shadow: 0 6px 20px rgba(140, 43, 231, 0.6);
         }
 
         .light-mode .modal-content {
@@ -423,7 +495,6 @@
 
         .light-mode .modal h2 {
             color: #333;
-            text-shadow: 0 0 10px rgba(0, 180, 80, 0.4);
         }
 
         .light-mode .modal p {
@@ -438,6 +509,10 @@
             .glass-btn {
                 padding: 15px 30px;
                 font-size: 1.2rem;
+            }
+            
+            .modal-buttons {
+                flex-direction: column;
             }
         }
     </style>
@@ -455,6 +530,7 @@
             <h1 class="title">三大丐帮中转站</h1>
             
             <div class="buttons">
+                <button class="glass-btn seed-btn" id="seedBtn">seed</button>
                 <a href="https://seedtut.github.io" class="glass-btn">seedtut</a>
                 <a href="https://txtgw.netlify.app/" class="glass-btn txt-btn">txt</a>
                 <button class="glass-btn watermelon-btn" id="watermelonBtn">西瓜🍉</button>
@@ -471,20 +547,38 @@
         </div>
     </div>
 
-    <!-- 弹窗 -->
+    <!-- Seed选择弹窗 -->
+    <div class="modal" id="seedModal">
+        <div class="modal-content">
+            <h2>选择Seed版本</h2>
+            <p>请选择您要跳转的版本：</p>
+            <div class="modal-buttons">
+                <button class="modal-btn pro" id="proBtn">Pro</button>
+                <button class="modal-btn foundation" id="foundationBtn">Foundation</button>
+            </div>
+            <button class="modal-close" id="seedModalClose">取消</button>
+        </div>
+    </div>
+
+    <!-- 西瓜弹窗 -->
     <div class="modal" id="watermelonModal">
         <div class="modal-content">
             <h2>西瓜🍉</h2>
             <p>暂无官网</p>
-            <button class="modal-close" id="modalClose">确定</button>
+            <button class="modal-close" id="watermelonModalClose">确定</button>
         </div>
     </div>
 
     <script>
         const themeToggle = document.getElementById('themeToggle');
+        const seedBtn = document.getElementById('seedBtn');
+        const seedModal = document.getElementById('seedModal');
+        const seedModalClose = document.getElementById('seedModalClose');
+        const proBtn = document.getElementById('proBtn');
+        const foundationBtn = document.getElementById('foundationBtn');
         const watermelonBtn = document.getElementById('watermelonBtn');
         const watermelonModal = document.getElementById('watermelonModal');
-        const modalClose = document.getElementById('modalClose');
+        const watermelonModalClose = document.getElementById('watermelonModalClose');
         
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('light-mode');
@@ -494,21 +588,46 @@
             localStorage.setItem('lightMode', isLightMode);
         });
         
-        // 显示弹窗
+        // 显示Seed选择弹窗
+        seedBtn.addEventListener('click', () => {
+            seedModal.classList.add('active');
+        });
+        
+        // 关闭Seed选择弹窗
+        seedModalClose.addEventListener('click', () => {
+            seedModal.classList.remove('active');
+        });
+        
+        // 跳转到Pro版本
+        proBtn.addEventListener('click', () => {
+            window.open('https://seedtutpro.github.io', '_blank');
+            seedModal.classList.remove('active');
+        });
+        
+        // 跳转到Foundation版本
+        foundationBtn.addEventListener('click', () => {
+            window.open('https://seedtut.github.io', '_blank');
+            seedModal.classList.remove('active');
+        });
+        
+        // 显示西瓜弹窗
         watermelonBtn.addEventListener('click', () => {
             watermelonModal.classList.add('active');
         });
         
-        // 关闭弹窗
-        modalClose.addEventListener('click', () => {
+        // 关闭西瓜弹窗
+        watermelonModalClose.addEventListener('click', () => {
             watermelonModal.classList.remove('active');
         });
         
         // 点击弹窗外部关闭
-        watermelonModal.addEventListener('click', (e) => {
-            if (e.target === watermelonModal) {
-                watermelonModal.classList.remove('active');
-            }
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
         });
         
         // 检查用户之前的偏好
